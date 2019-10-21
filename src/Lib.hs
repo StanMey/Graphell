@@ -10,6 +10,12 @@ someFunc = putStrLn "someFunc"
 vertexExist :: Graph -> Int -> Bool
 vertexExist gr state = state `elem` gr
 
+-- |Returns the amount of the vertices in the Graph
+
+
+-- |Checks for the existance of a certain Vertex
+
+
 -- |Gets a list of all the adjacent vertices if they exist otherwise Nothing
 getAdjacentVertices :: Vertex -> Table -> Maybe [Edge]
 getAdjacentVertices state map = Map.lookup state map
@@ -20,7 +26,7 @@ getAdjacentVertices state map = Map.lookup state map
 -- |Prints for a certain Vertex its edges with other vertices and weights to the screen
 printAdjacentVertices :: Vertex -> Table -> IO ()
 printAdjacentVertices state map =
-    case Map.lookup state map of
+    case getAdjacentVertices state map of
         Nothing -> putStrLn "The Vertex doesn't exist"
         Just [] -> putStrLn "The Vertex doesn't have any adjacent Vertices"
         Just all@(x:xs) -> mapM_ putStrLn $ printConnection state all
