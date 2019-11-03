@@ -20,17 +20,9 @@ verticesAmount = Map.size
 getAdjacentVertices :: Vertex -> Graph -> Maybe [Edge]
 getAdjacentVertices state map = Map.lookup state map
 
--- |Selects only the Vertices and puts them in a list
-selectVertices = undefined
-
 -- |Gets a list of all the existing Vertices
 getAllVertices :: Graph -> [Vertex]
 getAllVertices = Map.keys
-
--- |Removes all the weights from the Edges
--- getOnlyAdjacentVertices ::
--- getOnlyAdjacentVertices graph = undefined
-
 
 --- Some methods for printing info about the Graph to the screen
 
@@ -45,19 +37,6 @@ printAdjacentVertices state map =
 -- |Puts info about the relation between a vertex and its edges in a list of Strings
 printConnection :: Vertex -> [Edge] -> [String]
 printConnection state connections = map (\(a,b) -> "From Vertex " ++ show state ++ " to Vertex " ++ show a ++ " with weight: " ++ show b) connections
-
-
-
--- testing
-newGraph :: Graph
-newGraph = Map.fromList
-    [(0, [(1, 5), (2, 2)])
-    ,(1, [(0, 5), (3, 3)])
-    ,(2, [(0, 2), (3, 1), (4, 7)])
-    ,(3, [(1, 3), (2, 1), (4, 2)])
-    ,(4, [(2, 7), (3, 2)])
-    ]
-
 
 
 
