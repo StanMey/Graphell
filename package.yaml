@@ -1,10 +1,10 @@
 name:                dep-eindopdracht
 version:             0.1.0.0
-github:              "githubuser/dep-eindopdracht"
+github:              "StanMey/dep-eindopdracht"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+author:              "Stan Mey"
+maintainer:          "Stan.Meyberg@student.hu.nl"
+copyright:           "2019 Stan Mey"
 
 extra-source-files:
 - README.md
