@@ -6,25 +6,36 @@ import qualified Data.Map as Map
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"
 
+-- Some helper functions for getting information from the Graph
+
 -- |Checks for the existence of a certain Vertex
-vertexExist :: Graph -> Int -> Bool
-vertexExist gr state = state `elem` gr
+vertexExist :: Int -> Graph -> Bool
+vertexExist state gr = Map.member state gr
 
 -- |Returns the amount of the vertices in the Graph
+verticesAmount :: Graph -> Int
+verticesAmount = Map.size
 
-
--- |Checks for the existance of a certain Vertex
-
-
--- |Gets a list of all the adjacent vertices if they exist otherwise Nothing
-getAdjacentVertices :: Vertex -> Table -> Maybe [Edge]
+-- |Gets a list of all the adjacent vertices with weights if they exist otherwise Nothing
+getAdjacentVertices :: Vertex -> Graph -> Maybe [Edge]
 getAdjacentVertices state map = Map.lookup state map
+
+-- |Selects only the Vertices and puts them in a list
+selectVertices = undefined
+
+-- |Gets a list of all the existing Vertices
+getAllVertices :: Graph -> [Vertex]
+getAllVertices = Map.keys
+
+-- |Removes all the weights from the Edges
+-- getOnlyAdjacentVertices ::
+-- getOnlyAdjacentVertices graph = undefined
 
 
 --- Some methods for printing info about the Graph to the screen
 
 -- |Prints for a certain Vertex its edges with other vertices and weights to the screen
-printAdjacentVertices :: Vertex -> Table -> IO ()
+printAdjacentVertices :: Vertex -> Graph -> IO ()
 printAdjacentVertices state map =
     case getAdjacentVertices state map of
         Nothing -> putStrLn "The Vertex doesn't exist"
@@ -36,11 +47,9 @@ printConnection :: Vertex -> [Edge] -> [String]
 printConnection state connections = map (\(a,b) -> "From Vertex " ++ show state ++ " to Vertex " ++ show a ++ " with weight: " ++ show b) connections
 
 
--- testing
-a :: Graph
-a = [0,1,2,3,4]
 
-newGraph :: Table
+-- testing
+newGraph :: Graph
 newGraph = Map.fromList
     [(0, [(1, 5), (2, 2)])
     ,(1, [(0, 5), (3, 3)])
@@ -48,3 +57,15 @@ newGraph = Map.fromList
     ,(3, [(1, 3), (2, 1), (4, 2)])
     ,(4, [(2, 7), (3, 2)])
     ]
+
+
+
+
+-- earlier drafts
+
+-- |Checks for the existence of a certain Vertex
+-- vertexExist :: Graph -> Int -> Bool
+-- vertexExist gr state = state `elem` gr
+
+-- a :: Graph
+-- a = [0,1,2,3,4]
