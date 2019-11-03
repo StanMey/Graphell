@@ -3,8 +3,6 @@ module Lib where
 import Datatypes
 import qualified Data.Map as Map
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
 
 -- Some helper functions for getting information from the Graph
 
