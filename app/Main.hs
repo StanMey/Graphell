@@ -28,7 +28,7 @@ infoVertexMain gr = do
   putStrLn "Which vertex?"
   fState <- getLine
   let firstState = read fState :: Int
-  L.printAdjacentVertices firstState gr
+  mapM_ putStrLn $ L.adjacentVerticesToString firstState gr
   main
 
 -- |Calculates the shortest path between 2 Vertices

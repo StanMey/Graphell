@@ -22,19 +22,17 @@ getAdjacentVertices state map = Map.lookup state map
 getAllVertices :: Graph -> [Vertex]
 getAllVertices = Map.keys
 
---- Some methods for printing info about the Graph to the screen
-
--- |Prints for a certain Vertex its edges with other vertices and weights to the screen
-printAdjacentVertices :: Vertex -> Graph -> IO ()
-printAdjacentVertices state map =
+-- |Returns for a certain Vertex its edges with other vertices and weights
+adjacentVerticesToString :: Vertex -> Graph -> [String]
+adjacentVerticesToString state map =
     case getAdjacentVertices state map of
-        Nothing -> putStrLn "The Vertex doesn't exist"
-        Just [] -> putStrLn "The Vertex doesn't have any adjacent Vertices"
-        Just all@(x:xs) -> mapM_ putStrLn $ printConnection state all
+        Nothing -> ["The Vertex doesn't exist"]
+        Just [] -> ["The Vertex doesn't have any adjacent Vertices"]
+        Just all@(x:xs) -> edgeToString state all
 
 -- |Puts info about the relation between a vertex and its edges in a list of Strings
-printConnection :: Vertex -> [Edge] -> [String]
-printConnection state connections = map (\(a,b) -> "From Vertex " ++ show state ++ " to Vertex " ++ show a ++ " with weight: " ++ show b) connections
+edgeToString :: Vertex -> [Edge] -> [String]
+edgeToString state connections = map (\(a,b) -> "From Vertex " ++ show state ++ " to Vertex " ++ show a ++ " with weight: " ++ show b) connections
 
 
 
