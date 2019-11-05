@@ -22,6 +22,29 @@ getAdjacentVertices state map = Map.lookup state map
 getAllVertices :: Graph -> [Vertex]
 getAllVertices = Map.keys
 
+
+-- Functions to get all the information about the Edges
+-- |Get the total amount of Edges in the undirectional Graph
+getEdgesAmount :: Graph -> Int
+getEdgesAmount gr = (sum $ [countEdges x gr | x <- (getAllVertices gr)]) `div` 2
+
+-- |Counts the connected Edges of a certain Vertex
+countEdges :: Vertex -> Graph -> Int
+countEdges v gr = case getAdjacentVertices v gr of
+  Nothing -> 0
+  Just [] -> 0
+  Just all@(x:xs) -> length all
+
+-- |Get the total sum of all the Weights of the Edges from one Vertex
+getWeightSum :: Vertex -> Graph -> Int
+getWeightSum state gr = sum $ map (\(a,b) -> b) $ getAllEdges state gr
+
+getAllEdges :: Vertex -> Graph -> [Edge]
+getAllEdges v gr = case getAdjacentVertices v gr of
+  Nothing -> [(0,0)]
+  Just [] -> [(0,0)]
+  Just all@(x:xs) -> all
+
 -- |Returns for a certain Vertex its edges with other vertices and weights
 adjacentVerticesToString :: Vertex -> Graph -> [String]
 adjacentVerticesToString state map =
