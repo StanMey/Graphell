@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{-|
+
+Module      : Datatypes
+Description : Module containing all datatypes to represent a Graph
+Copyright   : (c) Stan Meyberg, 2019
+License     : BSD3
+Maintainer  : stan.meyberg@student.hu.nl
+
+This module contains all datatypes to represent a Graph.
+
+-}</span><span>
+</span><a name="line-12"></a><span>
+</span><a name="line-13"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Datatypes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-14"></a><span>
+</span><a name="line-15"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data.Map</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">Map</span><span>
+</span><a name="line-16"></a><span>
+</span><a name="line-17"></a><span class="hs-keyword">type</span><span> </span><a name="Vertex"><a href="Datatypes.html#Vertex"><span class="hs-identifier">Vertex</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-type">Int</span><span>
+</span><a name="line-18"></a><span class="hs-comment">-- ^A single vertex is being noted as an integer</span><span>
+</span><a name="line-19"></a><span>
+</span><a name="line-20"></a><span class="hs-keyword">type</span><span> </span><a name="Weight"><a href="Datatypes.html#Weight"><span class="hs-identifier">Weight</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-type">Int</span><span>
+</span><a name="line-21"></a><span class="hs-comment">-- ^The weight a Edge has between two points in the graph</span><span>
+</span><a name="line-22"></a><span>
+</span><a name="line-23"></a><span class="hs-keyword">type</span><span> </span><a name="Edge"><a href="Datatypes.html#Edge"><span class="hs-identifier">Edge</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">(</span><a href="Datatypes.html#Vertex"><span class="hs-identifier hs-type">Vertex</span></a><span class="hs-special">,</span><span> </span><a href="Datatypes.html#Weight"><span class="hs-identifier hs-type">Weight</span></a><span class="hs-special">)</span><span>
+</span><a name="line-24"></a><span class="hs-comment">-- ^A edge holds a certain direction to another Vertex with a weight to it</span><span>
+</span><a name="line-25"></a><span>
+</span><a name="line-26"></a><span class="hs-keyword">type</span><span> </span><a name="Graph"><a href="Datatypes.html#Graph"><span class="hs-identifier">Graph</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-type">Map.Map</span><span> </span><a href="Datatypes.html#Vertex"><span class="hs-identifier hs-type">Vertex</span></a><span> </span><span class="hs-special">[</span><a href="Datatypes.html#Edge"><span class="hs-identifier hs-type">Edge</span></a><span class="hs-special">]</span><span>
+</span><a name="line-27"></a><span class="hs-comment">-- ^A table is a map from one vertex to other vertices</span><span>
+</span><a name="line-28"></a></pre></body></html>
