@@ -101,3 +101,8 @@ compareTwoLists [] (x:xs) = []
 compareTwoLists (x:xs) all@(z:zs) = if x `elem` all
                                       then x : compareTwoLists xs all
                                       else compareTwoLists xs all
+
+-- TODO
+-- Adding shortest path algorithm
+-- type signature (newtype/data)
+-- Reading Graph from file (JSON)
