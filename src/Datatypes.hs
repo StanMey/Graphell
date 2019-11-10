@@ -1,3 +1,15 @@
+{-|
+
+Module      : Datatypes
+Description : Module containing all datatypes to represent a Graph
+Copyright   : (c) Stan Meyberg, 2019
+License     : BSD3
+Maintainer  : stan.meyberg@student.hu.nl
+
+This module contains all datatypes to represent a Graph.
+
+-}
+
 module Datatypes where
 
 import qualified Data.Map as Map
@@ -13,11 +25,3 @@ type Edge = (Vertex, Weight)
 
 type Graph = Map.Map Vertex [Edge]
 -- ^A table is a map from one vertex to other vertices
-
-
-
-
--- earlier drafts
-
--- type Graph = [Vertex]
--- ^The complete list of all vertices

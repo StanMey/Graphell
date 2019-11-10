@@ -1,3 +1,15 @@
+{-|
+
+Module      : Lib
+Description : Module containing all necessary functions to retrieve information from a Graph
+Copyright   : (c) Stan Meyberg, 2019
+License     : BSD3
+Maintainer  : stan.meyberg@student.hu.nl
+
+This module contains all necessary functions to retrieve information from a Graph.
+
+-}
+
 module Lib where
 
 import Datatypes
@@ -6,7 +18,7 @@ import qualified Data.Map as Map
 
 -- *Some helper functions for getting the basic information from the Graph
 -- |Checks for the existence of a certain Vertex
-vertexExist :: Int -> Graph -> Bool
+vertexExist :: Vertex -> Graph -> Bool
 vertexExist state gr = Map.member state gr
 
 -- |Returns the amount of the vertices in the Graph
@@ -89,14 +101,3 @@ compareTwoLists [] (x:xs) = []
 compareTwoLists (x:xs) all@(z:zs) = if x `elem` all
                                       then x : compareTwoLists xs all
                                       else compareTwoLists xs all
-
-
-
--- earlier drafts
-
--- |Checks for the existence of a certain Vertex
--- vertexExist :: Graph -> Int -> Bool
--- vertexExist gr state = state `elem` gr
-
--- a :: Graph
--- a = [0,1,2,3,4]
