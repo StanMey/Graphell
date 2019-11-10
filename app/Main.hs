@@ -43,7 +43,7 @@ infoVertexMain gr choice = do
       main
 
 -- |Gives back som info about the relation of two Vertices based on the users choice
-infoVerticesMain :: Graph -> IO ()
+infoVerticesMain :: Graph -> Int -> IO ()
 infoVerticesMain gr choice = do
   putStrLn "\nWhat's the initial State?"
   fState <- getLine
